@@ -33,25 +33,19 @@ class Cases extends Admin_controller {
 
     redirect (array ('admin', $this->get_class (), 'index'), 'refresh');
   }
-  public function index ($offset = 0) {
-    $this->load_view (null);
-  }
-}
 
   public function index ($offset = 0) {
-    $start       = trim ($this->input_post ('start'));
-    $end         = trim ($this->input_post ('end'));
-    $category_id = trim ($this->input_post ('category_id'));
+    $tag_id = trim ($this->input_post ('tag_id'));
 
     if ($delete_ids = $this->input_post ('delete_ids'))
       $this->_delete ($delete_ids);
 
-    $conditions = $start && $end && $category_id ? array ('date BETWEEN ? AND ? AND category_id = ?', $start, $end, $category_id) : ($start && $end ? array ('date BETWEEN ? AND ?', $start, $end) : ($category_id ? array ('category_id = ?', $category_id) : array ()));
+    $conditions = $tag_id ? array ('tag_id = ?', $tag_id) : array ();
 
     $limit = 10;
-    $total = Product::count (array ('conditions' => $conditions));
+    $total = Case::count (array ('conditions' => $conditions));
     $offset = $offset < $total ? $offset : 0;
-    $products = Product::find ('all', array ('order' => 'id DESC', 'offset' => $offset, 'limit' => $limit, 'conditions' => $conditions));
+    $cases = Case::find ('all', array ('order' => 'id DESC', 'offset' => $offset, 'limit' => $limit, 'conditions' => $conditions));
 
     $page_total = ceil ($total / $limit);
     $now_page = ($offset / $limit + 1);
@@ -59,12 +53,14 @@ class Cases extends Admin_controller {
     $prev_link = $now_page - 2 >= 0 ? base_url (array ('admin', $this->get_class (), $this->get_method (), ($now_page - 2) * $limit)) : '#';
     $pagination = array ('total' => $total, 'page_total' => $page_total, 'now_page' => $now_page, 'next_link' => $next_link, 'prev_link' => $prev_link);
 
-    $this->load_view (array ('products' => $products, 'pagination' => $pagination, 'start' => $start, 'end' => $end, 'category_id' => $category_id));
+    $this->load_view (array ('cases' => $cases, 'pagination' => $pagination, 'tag_id' => $tag_id));
   }
-  public function categories () {
+
+
+  public function tags () {
 
     if ($this->has_post ()) {
-      if (($name = trim ($this->input_post ('name'))) && verifyCreateOrm (Category::create (array ('name' => $name, 'sort' => Category::count () + 1))))
+      if (($name = trim ($this->input_post ('name'))) && verifyCreateOrm (CaseTag::create (array ('name' => $name, 'sort' => CaseTag::count () + 1))))
         identity ()->set_session ('_flash_message', '新增成功!', true) && redirect (array ('admin', $this->get_class (), $this->get_method ()), 'refresh');
 
       if ($categories = $this->input_post ('categories')) {
@@ -83,6 +79,8 @@ class Cases extends Admin_controller {
     $categories = Category::find ('all', array ('order' => 'sort DESC, id DESC'));
     $this->load_view (array ('categories' => $categories));
   }
+
+}
   public function edit ($id = 0) {
     if (!($product = Product::find ('one', array ('conditions' => array ('id = ?', $id)))))
       redirect (array ('admin', $this->get_class ()));

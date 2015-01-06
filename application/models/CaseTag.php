@@ -5,19 +5,12 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class Case extends OaModel {
+class CaseTag extends OaModel {
 
-  static $table_name = 'cases';
+  static $table_name = 'case_tags';
 
-  static $has_one = array (
-    array ('first_pic', 'class_name' => 'CasePic', 'order' => 'id ASC')
-  );
   static $has_many = array (
-    array ('pics', 'class_name' => 'CasePic'),
-    array ('blocks', 'class_name' => 'CaseBlock')
-  );
-  static $belongs_to = array (
-    array ('tag', 'class_name' => 'CaseTag')
+    array ('cases', 'class_name' => 'Casee')
   );
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {

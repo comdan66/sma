@@ -2,10 +2,107 @@
  * @author      OA Wu <comdan66@gmail.com>
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
-/* line 5, content.scss */
-.error {
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+/* line 7, content.scss */
+.add_spec {
+  margin-top: 5px;
+  float: right;
+}
+
+/* line 11, content.scss */
+.textleft .files {
   position: relative;
   display: inline-block;
   width: 100%;
+}
+
+/* line 16, content.scss */
+.textleft .files .add_pic {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 8.5px;
+}
+
+/* line 25, content.scss */
+.textleft .files .file {
+  width: calc(100% - 40px);
+  cursor: pointer;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* line 30, content.scss */
+.error {
+  margin-bottom: 20px;
   color: #ca0c0c;
+}
+
+/* line 34, content.scss */
+.grid-wrap {
+  overflow: visible;
+}
+
+/* line 37, content.scss */
+section {
+  overflow: visible;
+}
+
+/* line 40, content.scss */
+article {
+  overflow: visible;
+}
+
+/* line 43, content.scss */
+table {
+  position: relative;
+}
+/* line 46, content.scss */
+table .delete {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  text-align: center;
+  background-color: #ff3232;
+  border: 1px solid #d43f3a;
+  cursor: pointer;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 1px rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 1px rgba(255, 255, 255, 0.4);
+}
+/* line 63, content.scss */
+table .delete:hover {
+  -moz-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5), inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5), inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5), inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+}
+/* line 66, content.scss */
+table .delete:active {
+  -moz-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5), inset 1px 1px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5), inset 1px 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5), inset 1px 1px 1px rgba(0, 0, 0, 0.4);
 }

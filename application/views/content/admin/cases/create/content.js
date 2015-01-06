@@ -4,10 +4,7 @@
  */
 
 $(function() {
-  var index = $('table').length;
-  $('.del_pic').click (function () {
-    $(this).parents ('li').remove ()
-  });
+  var index = 0;
   $('.add_pic').click (function () {
     $('.files').append (_.template ($('#_file').html (), {}) ({}))
   }).click ();
@@ -33,6 +30,4 @@ $(function() {
   $('body').on ('click', '.delete', function () {
     $(this).parents ('table').remove ();
   });
-
-
 });

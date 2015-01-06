@@ -2,8 +2,9 @@
 
 /**
  * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2014 OA Wu Design
+ * @copyright   Copyright (c) 2015 OA Wu Design
  */
+
 class Admin_cells extends Cell_Controller {
 
   public function side_menu () {

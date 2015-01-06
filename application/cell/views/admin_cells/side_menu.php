@@ -3,46 +3,38 @@
   <menu>
     <div id="wrapper">
       <ul class="menu">
-        <li class="item1"><a href="#">Banner管理</a>
+        <li class="item1"><a href="#">Banner</a>
           <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'banners'));?>">新增/修改Banner</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'banners'));?>">Create/Update Banner</a></li>
           </ul>
         </li>
 
-<!--
-        <li class="item2"><a href="#">最新消息管理</a>
+        <li class="item3"><a href="#"><span>Case</span></a>
           <ul>
-            <li class="subitem1"><a href="news.html">最新消息列表</a></li>
-            <li class="subitem2"><a href="news_add.html">新增最新消息</a></li>
-          </ul>
-        </li> -->
-
-        <li class="item3"><a href="#"><span>產品管理</span></a>
-          <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'products'));?>">產品列表</a></li>
-            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'products', 'categories'));?>">新增產品分類</a></li>
-            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'products', 'create'));?>">新增產品</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'cases'));?>">Case list</a></li>
+            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'cases', 'tags'));?>">Case tag</a></li>
+            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'cases', 'create'));?>">Create Case</a></li>
           </ul>
         </li>
 
-        <li class="item3"><a href="#"><span>媒體露出管理</span></a>
+        <li class="item3"><a href="#"><span>Aroma</span></a>
           <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'medias'));?>">媒體露出列表</a></li>
-            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'medias', 'create'));?>">新增媒體露出</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'aromas'));?>">Case list</a></li>
+            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'aromas', 'tags'));?>">Case tag</a></li>
+            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'aromas', 'create'));?>">Create Case</a></li>
           </ul>
         </li>
 
-        <li class="item3"><a href="#"><span>最新消息管理</span></a>
+        <li class="item3"><a href="#"><span>News</span></a>
           <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'news'));?>">最新消息列表</a></li>
-            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'news', 'create'));?>">新增最新消息</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'news'));?>">News list</a></li>
+            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'news', 'create'));?>">Create News</a></li>
           </ul>
         </li>
 
-
-        <li class="item5"><a href="#">網站管理員</a>
+        <li class="item5"><a href="#">Admin</a>
           <ul>
-            <li class="subitem1"><a href="/admin/edit">修改帳號密碼 </a></li>
+            <li class="subitem1"><a href="/admin/edit">Update admin</a></li>
           </ul>
         </li>
       </ul>

@@ -12,6 +12,8 @@ class Main extends Site_controller {
   }
 
   public function index () {
-    $this->load_view (null);
+    $this->set_frame_path ('frame', 'site_index')
+         ->add_js (base_url (array ('resource', 'site', 'js', 'supersized.2.0.js')))
+         ->load_view ();
   }
 }

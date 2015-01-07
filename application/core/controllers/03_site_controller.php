@@ -30,11 +30,14 @@ class Site_controller extends Oa_controller {
   }
 
   private function _add_css () {
-    return $this;
+    return $this
+            ->add_css ('http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700')
+    ;
   }
 
   private function _add_js () {
-    return $this->add_js (base_url (utilitySameLevelPath (REL_PATH_JS, 'jquery_v1.10.2', 'jquery-1.10.2.min.js')))
+    return $this->add_js (base_url (utilitySameLevelPath ('resource', 'jquery_v1.10.2', 'jquery-1.10.2.min.js')))
+                ->add_js (base_url (utilitySameLevelPath ('resource', 'oa-imgLiquid', 'oa-imgLiquid.js')))
                 ;
   }
 }

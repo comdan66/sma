@@ -35,12 +35,12 @@ class Cases extends Admin_controller {
   }
 
   public function index ($offset = 0) {
-    $tag_id = trim ($this->input_post ('tag_id'));
+    $case_tag_id = trim ($this->input_post ('case_tag_id'));
 
     if ($delete_ids = $this->input_post ('delete_ids'))
       $this->_delete ($delete_ids);
 
-    $conditions = $tag_id ? array ('tag_id = ?', $tag_id) : array ();
+    $conditions = $case_tag_id ? array ('case_tag_id = ?', $case_tag_id) : array ();
 
     $limit = 10;
     $total = Casee::count (array ('conditions' => $conditions));
@@ -53,7 +53,7 @@ class Cases extends Admin_controller {
     $prev_link = $now_page - 2 >= 0 ? base_url (array ('admin', $this->get_class (), $this->get_method (), ($now_page - 2) * $limit)) : '#';
     $pagination = array ('total' => $total, 'page_total' => $page_total, 'now_page' => $now_page, 'next_link' => $next_link, 'prev_link' => $prev_link);
 
-    $this->load_view (array ('cases' => $cases, 'pagination' => $pagination, 'tag_id' => $tag_id));
+    $this->load_view (array ('cases' => $cases, 'pagination' => $pagination, 'case_tag_id' => $case_tag_id));
   }
 
   public function tags () {
@@ -66,7 +66,7 @@ class Cases extends Admin_controller {
           CaseTag::delete_all (array ('conditions' => array ('id IN (?)', $delete_ids)));
           Casee::update_all (array ('set' => 'case_tag_id = 0', 'conditions' => array ('case_tag_id IN (?)', $delete_ids)));
         }
-        
+
         array_map (function ($tag) {
           if ($tag['id'] && trim ($tag['name']) && trim ($tag['sort']))
             CaseTag::table ()->update ($set = array ('name' => trim ($tag['name']), 'sort' => trim ($tag['sort'])), array ('id' => $tag['id']));

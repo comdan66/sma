@@ -12,7 +12,7 @@
           <tr>
             <td width="80">分類＊</td>
             <td class="textleft">
-              <select name='category_id'>
+              <select name='case_tag_id'>
                 <option value='0'>未分類</option>
           <?php if ($tags = CaseTag::all ()) {
                   foreach ($tags as $tag) { ?>

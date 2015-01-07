@@ -1,11 +1,1 @@
-/**
- * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2014 OA Wu Design
- */
-/* line 5, content.scss */
-.error {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  color: #ca0c0c;
-}
+.error{position:relative;display:inline-block;width:100%;color:#ca0c0c}

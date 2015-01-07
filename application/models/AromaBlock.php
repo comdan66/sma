@@ -6,6 +6,7 @@
  */
 
 class AromaBlock extends OaModel {
+  // type: file_name, title, content
 
   static $table_name = 'aroma_blocks';
 

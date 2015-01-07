@@ -5,15 +5,16 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 if (!function_exists ('get_upload_file')) {
-  function get_upload_file ($tag_name, $type = 'all') {
-    $files_list = transposed_all_files_array ($_FILES);
+  function get_upload_file ($tag_name, $type = 'all', $filter = true) {
+    $files_list = transposed_all_files_array ($_FILES, $filter);
+
 
     $list = element ($tag_name, $files_list, array ());
 
     if ($type == 'one') if (count ($list)) return $list[0]; else return null;
     else if (count ($list)) return $list; else return array ();
   }
-} 
+}
 
 if (!function_exists ('element')) {
   function element ($item, $array, $default = false) {
@@ -25,12 +26,12 @@ if (!function_exists ('element')) {
 }
 
 if (!function_exists ('transposed_all_files_array')) {
-  function transposed_all_files_array ($files_list) {
+  function transposed_all_files_array ($files_list, $filter = true) {
     $new_array = array ();
 
     if (count ($files_list)) {
       foreach ($files_list as $key => $files) {
-        $new_array[$key] = transposed_files_array ($files);
+        $new_array[$key] = transposed_files_array ($files, $filter);
       }
     }
     return $new_array;
@@ -38,14 +39,13 @@ if (!function_exists ('transposed_all_files_array')) {
 }
 
 if (!function_exists ('transposed_files_array')) {
-  function transposed_files_array ($files) {
-    $filter_size = true;
+  function transposed_files_array ($files, $filter = true) {
     $new_array   = array ();
     $files_count = count ($files['name']);
     $files_keys  = array_keys ($files);
 
     for ($i = 0, $j = 0; $i < $files_count; $i++) {
-      if ((!is_array ($files['size']) && (!$filter_size || $files['size']!=0)) || (!$filter_size || $files['size'][$i] !=0)){
+      if (!$filter || (!is_array ($files['size']) && ($files['size'] != 0) || ($files['size'][$i] != 0))) {
         foreach ($files_keys as $key) {
           if (is_array ($files[$key])) {
             $new_array[$j][$key] = $files[$key][$i];

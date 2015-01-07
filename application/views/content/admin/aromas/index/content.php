@@ -1,14 +1,14 @@
 <section class="grid col-three-quarters mq2-col-full">
-  <h2>Case > List</h2>
+  <h2>Aroma > List</h2>
   <hr>
 
   <article id="navphilo">
-    <form action="<?php echo base_url (array ('admin', 'cases'));?>" method="post">
+    <form action="<?php echo base_url (array ('admin', 'aromas'));?>" method="post">
       分類：
-      <select name="case_tag_id" class="search">
-        <option value='0'<?php echo $case_tag_id ? '' : ' selected';?>>請選擇</option>
-    <?php foreach (CaseTag::all () as $tag) { ?>
-            <option value='<?php echo $tag->id;?>'<?php echo $case_tag_id == $tag->id ? ' selected' : '';?>><?php echo $tag->name;?></option>
+      <select name="aroma_tag_id" class="search">
+        <option value='0'<?php echo $aroma_tag_id ? '' : ' selected';?>>請選擇</option>
+    <?php foreach (AromaTag::all () as $tag) { ?>
+            <option value='<?php echo $tag->id;?>'<?php echo $aroma_tag_id == $tag->id ? ' selected' : '';?>><?php echo $tag->name;?></option>
     <?php } ?>
       </select>
       &nbsp;&nbsp;&nbsp;&nbsp;
@@ -18,7 +18,7 @@
   </article>
 
   <article id="navplace">
-    <form action="<?php echo base_url (array ('admin', 'cases'));?>" method="post">
+    <form action="<?php echo base_url (array ('admin', 'aromas'));?>" method="post">
       <button type="submit" id="delete">刪除</button>
       &nbsp;
       <button type="button" id="select_all">全選</button>
@@ -36,14 +36,14 @@
         </thead>
         <tbody>
           </tr>
-    <?php if ($cases) {
-            foreach ($cases as $case) { ?>
+    <?php if ($aromas) {
+            foreach ($aromas as $aroma) { ?>
               <tr>
-                <td><label><input type="checkbox" name='delete_ids[]' value='<?php echo $case->id;?>'></label></td>
-                <td class="textleft"><?php echo $case->tag ? $case->tag->name : '未分類';?></td>
-                <td class="textleft"><?php echo $case->title;?></td>
-                <td><a href="<?php echo base_url (array ('admin', 'cases', 'edit', $case->id));?>">修改</a></td>
-                <td><?php echo $case->is_enabled ? '上架' : '下架';?></td>
+                <td><label><input type="checkbox" name='delete_ids[]' value='<?php echo $aroma->id;?>'></label></td>
+                <td class="textleft"><?php echo $aroma->tag ? $aroma->tag->name : '未分類';?></td>
+                <td class="textleft"><?php echo $aroma->title;?></td>
+                <td><a href="<?php echo base_url (array ('admin', 'aromas', 'edit', $aroma->id));?>">修改</a></td>
+                <td><?php echo $aroma->is_enabled ? '上架' : '下架';?></td>
               </tr>
       <?php }
           } else { ?>

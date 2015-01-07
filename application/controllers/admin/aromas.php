@@ -29,12 +29,14 @@ class Aromas extends Admin_controller {
   }
 
   public function index ($offset = 0) {
+    $start       = trim ($this->input_post ('start'));
+    $end         = trim ($this->input_post ('end'));
     $aroma_tag_id = trim ($this->input_post ('aroma_tag_id'));
 
     if ($delete_ids = $this->input_post ('delete_ids'))
       $this->_delete ($delete_ids);
 
-    $conditions = $aroma_tag_id ? array ('aroma_tag_id = ?', $aroma_tag_id) : array ();
+    $conditions = $start && $end && $aroma_tag_id ? array ('date BETWEEN ? AND ? AND aroma_tag_id = ?', $start, $end, $aroma_tag_id) : ($start && $end ? array ('date BETWEEN ? AND ?', $start, $end) : ($aroma_tag_id ? array ('aroma_tag_id = ?', $aroma_tag_id) : array ()));
 
     $limit = 10;
     $total = Aroma::count (array ('conditions' => $conditions));
@@ -47,7 +49,7 @@ class Aromas extends Admin_controller {
     $prev_link = $now_page - 2 >= 0 ? base_url (array ('admin', $this->get_class (), $this->get_method (), ($now_page - 2) * $limit)) : '#';
     $pagination = array ('total' => $total, 'page_total' => $page_total, 'now_page' => $now_page, 'next_link' => $next_link, 'prev_link' => $prev_link);
 
-    $this->load_view (array ('aromas' => $aromas, 'pagination' => $pagination, 'aroma_tag_id' => $aroma_tag_id));
+    $this->load_view (array ('aromas' => $aromas, 'pagination' => $pagination, 'aroma_tag_id' => $aroma_tag_id, 'start' => $start, 'end' => $end));
   }
 
   public function tags () {
@@ -132,10 +134,7 @@ class Aromas extends Admin_controller {
         if ($file)
           $aroma->file_name->put ($file);
 
-        if ($delete_ids = array_diff (field_array ($aroma->blocks, 'id'), array_map (function ($block) {
-          AromaBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id']));
-          return $block['id'];
-        }, $old_blocks)))
+        if ($old_blocks && ($delete_ids = array_diff (field_array ($aroma->blocks, 'id'), array_map (function ($block) { AromaBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks))))
           AromaBlock::delete_all (array ('conditions' => array ('id IN (?) AND aroma_id = ?', $delete_ids, $aroma->id)));
 
         if ($blocks)

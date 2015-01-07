@@ -48,7 +48,7 @@
       <?php }
           } else { ?>
             <tr>
-              <td colspan='6'>沒有任何資料產品</td>
+              <td colspan='5'>沒有任何資料產品</td>
             </tr>
     <?php } ?>
         </tbody>

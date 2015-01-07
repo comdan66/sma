@@ -5,10 +5,13 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class AromaBlock extends OaModel {
-  // type: file_name, title, content
+class Neww extends OaModel {
 
-  static $table_name = 'aroma_blocks';
+  static $table_name = 'news';
+
+  static $has_many = array (
+    array ('blocks', 'class_name' => 'NewBlock', 'foreign_key' => 'new_id')
+  );
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);

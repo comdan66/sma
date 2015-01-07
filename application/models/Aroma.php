@@ -5,21 +5,16 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class Casee extends OaModel {
+class Aroma extends OaModel {
 
-  static $table_name = 'cases';
-
-  static $has_one = array (
-    array ('first_pic', 'class_name' => 'CasePic', 'order' => 'id ASC', 'foreign_key' => 'case_id')
-  );
+  static $table_name = 'aromas';
 
   static $has_many = array (
-    array ('pics', 'class_name' => 'CasePic', 'foreign_key' => 'case_id'),
-    array ('blocks', 'class_name' => 'CaseBlock', 'foreign_key' => 'case_id')
+    array ('blocks', 'class_name' => 'AromaBlock')
   );
 
   static $belongs_to = array (
-    array ('tag', 'class_name' => 'CaseTag')
+    array ('tag', 'class_name' => 'AromaTag')
   );
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {

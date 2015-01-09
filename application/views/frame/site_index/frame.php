@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <?php echo isset ($meta) ? $meta:'';?>
 
     <title><?php echo isset ($title) ? $title : '';?></title>
@@ -22,11 +23,13 @@
 
     <div id='container'>
       <div class='slider'>
-        <div class='logo'>SMA</div>
-        <a href=''><div class='item'>sda</div></a>
-        <a href=''><div class='item'>sda</div></a>
-        <a href=''><div class='item'>sda</div></a>
-        <a href=''><div class='item'>sda</div></a>
+        <img class='logo' src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
+
+        <div class='item'><a href=''>ABOUT</a></div>
+        <div class='item'><a href=''>CASE STUDY</a></div>
+        <div class='item'><a href=''>NEWS</a></div>
+        <div class='item'><a href=''>AROMA</a></div>
+        <div class='item'><a href=''>CONTACT</a></div>
       </div>
       <div class='footer'>
         <div class='left'>

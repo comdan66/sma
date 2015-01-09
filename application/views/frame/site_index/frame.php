@@ -25,11 +25,11 @@
       <div class='slider'>
         <img class='logo' src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
 
-        <div class='item'><a href=''>ABOUT</a></div>
-        <div class='item'><a href=''>CASE STUDY</a></div>
-        <div class='item'><a href=''>NEWS</a></div>
-        <div class='item'><a href=''>AROMA</a></div>
-        <div class='item'><a href=''>CONTACT</a></div>
+        <div class='item'><a href='<?php echo base_url (array ('abouts'));?>'>ABOUT</a></div>
+        <div class='item'><a href='<?php echo base_url (array ('cases'));?>'>CASE STUDY</a></div>
+        <div class='item'><a href='<?php echo base_url (array ('news'));?>'>NEWS</a></div>
+        <div class='item'><a href='<?php echo base_url (array ('aromas'));?>'>AROMA</a></div>
+        <div class='item'><a href='<?php echo base_url (array ('contacts'));?>'>CONTACT</a></div>
       </div>
       <div class='footer'>
         <div class='left'>

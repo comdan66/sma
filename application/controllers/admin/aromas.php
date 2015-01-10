@@ -152,7 +152,7 @@ class Aromas extends Admin_controller {
 
         $aroma->title       = $title;
         $aroma->date       = $date;
-        if (!$content)
+        if ($content)
           $aroma->content  = $content;
         $aroma->is_enabled  = $is_enabled;
         $aroma->aroma_tag_id = $aroma_tag_id ? $aroma_tag_id : 0;

@@ -15,6 +15,10 @@
     <?php echo isset ($hidden) ? $hidden : '';?>
 
 
+    <div id='right_slide' class='close'>
+<?php echo render_cell ('site_cells', 'menus');?>
+    </div>
+    <div id='slide_cover'></div>
 
     <div id='container'>
 
@@ -34,10 +38,6 @@
         </div>
       </div>
       
-      <div id='right_slide' class='close'>
-  <?php echo render_cell ('site_cells', 'menus');?>
-      </div>
-      <div id='slide_cover'></div>
 
       <div id='content'>
         <div class='footer'>

@@ -30,5 +30,7 @@ $(function () {
   });
   var key = window.location.pathname.split ('/').filter (function (t) { return t.length; });
   if (key.length)
-    $('div.sub[data-key="'+key[0]+'"]').addClass ('show');
+    $('div.sub[data-key="' + key[0] + '"]').addClass ('show');
+
+  
 });

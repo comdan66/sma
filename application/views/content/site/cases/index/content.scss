@@ -58,6 +58,10 @@
       width: 200px;
       height: 250px;
       margin: 10px;
+      @include opacity(1);
+      &.cover {
+        @include opacity(.3);
+      }
       img {
         width: 200px;
         height: 200px;
@@ -156,6 +160,10 @@
       width: 200px;
       height: 250px;
       margin: 10px;
+      @include opacity(1);
+      &.cover {
+        @include opacity(.3);
+      }
       img {
         width: 200px;
         height: 200px;

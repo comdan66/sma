@@ -1,0 +1,97 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+.d {
+  text-align: left;
+  color: #767676;
+  font-size: 12px;
+}
+.t {
+  text-align: left;
+  margin-top: 5px;
+  border-bottom: 1px solid rgba(169, 170, 193, 1);
+  padding-bottom: 15px;
+  .tt, .bs {
+    float: left;
+    display: inline-block;
+    width: 200px;
+  }
+  .tt {
+    width: calc(100% - 200px);
+    font-size: 25px;
+    color: #4d452e;
+  }
+  .bs {
+    margin-top: 7px;
+    text-align: right;
+
+    .back {
+      display: inline-block;
+      background-color: rgba(255, 69, 7, 1);
+      border: 1px solid rgba(234, 94, 58, 1);
+      padding: 2px 5px;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bolder;
+      
+      @include border-radius(5px);
+      @include box-shadow(inset 0 25px 35px 0 rgba(255,255,255,.15), 0 1px 5px 0 rgba(0,0,0,.2));
+      @include text-shadow(1px 1px 1px rgba(0,0,0,.3));
+      @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+    }
+    .fb-like {
+      overflow: hidden;
+    }
+  }
+}
+.c {
+  text-align: left;
+  padding: 10px 0;
+  
+  .i {
+    text-align: center;
+    img {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+  .tt {
+    font-size: 20px;
+    color: #767676;
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+  .cc {
+    margin-bottom: 20px;
+    margin-top: 4px;
+    font-size: 15px;
+    color: #767676;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 736px) {
+  #content {
+    .content {
+      padding: 25px 15px;
+      .back {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-width: 737px) {
+  #content {
+    .content {
+      padding: 55px 35px;
+    }
+  }
+}

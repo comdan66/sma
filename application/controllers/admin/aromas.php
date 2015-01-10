@@ -91,14 +91,17 @@ class Aromas extends Admin_controller {
       if ($title && $file && $date && is_numeric ($is_enabled)) {
 
         if (verifyCreateOrm ($aroma = Aroma::create (array ('title' => $title, 'file_name' => '', 'content' => '', 'date' => $date, 'is_enabled' => $is_enabled, 'aroma_tag_id' => $aroma_tag_id ? $aroma_tag_id : 0))) && $aroma->file_name->put ($file)) {
+          $content = '';
           if ($blocks)
             foreach ($blocks as $i => $block) {
-              $b = AromaBlock::create (array ('aroma_id' => $aroma->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
+              $b = AromaBlock::create (array ('aroma_id' => $aroma->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
 
               if ($block['type'] == 'file_name')
                 if (!$b->file_name->put (array_shift ($block_files)))
                   $b->delete ();
             }
+          $new->content = $content;
+          $new->save ();
 
           identity ()->set_session ('_flash_message', '新增成功!', true);
           redirect (array ('admin', $this->get_class ()));
@@ -137,9 +140,10 @@ class Aromas extends Admin_controller {
         if ($old_blocks && ($delete_ids = array_diff (field_array ($aroma->blocks, 'id'), array_map (function ($block) { AromaBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks))))
           AromaBlock::delete_all (array ('conditions' => array ('id IN (?) AND aroma_id = ?', $delete_ids, $aroma->id)));
 
+        $content = '';
         if ($blocks)
           foreach ($blocks as $i => $block) {
-            $b = AromaBlock::create (array ('aroma_id' => $aroma->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
+            $b = AromaBlock::create (array ('aroma_id' => $aroma->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
 
             if ($block['type'] == 'file_name')
               if (!$b->file_name->put (array_shift ($block_files)))
@@ -148,6 +152,7 @@ class Aromas extends Admin_controller {
 
         $aroma->title       = $title;
         $aroma->date       = $date;
+        $aroma->content  = $content;
         $aroma->is_enabled  = $is_enabled;
         $aroma->aroma_tag_id = $aroma_tag_id ? $aroma_tag_id : 0;
         $aroma->save ();

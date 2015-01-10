@@ -1,10 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-
-
-// $route['products/(:num)'] = "products/content/$1";
-// $route['medias/(:num)'] = "medias/index/$1";
-// $route['news/(:num)'] = "news/content/$1";
 $route['cases/(:num)'] = "cases/content/$1";
 $route['news/(:num)'] = "news/content/$1";
 $route['aromas/(:num)'] = "aromas/content/$1";

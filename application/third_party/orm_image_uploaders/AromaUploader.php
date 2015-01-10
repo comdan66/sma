@@ -15,6 +15,7 @@ class AromaUploader extends OrmImageUploader {
     return array (
             '' => array (),
             '80x80' => array ('adaptiveResizeQuadrant', 80, 80, 'c'),
+            '115x115' => array ('adaptiveResizeQuadrant', 115, 115, 'c'),
           );
   }
 }

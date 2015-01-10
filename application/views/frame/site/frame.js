@@ -10,6 +10,8 @@ $(function () {
     setTimeout (function () {
       if ($('#content').height () > $('.content').height ())
         $('.content').css ({'height': $('#content').height () + 'px'});  
+      if ($('#container').height () > $('.slide_c').height ())
+      $('.slide_c').css ({'height': $('#container').height () + 'px'});  
     }, 500);
   }).resize ();
   

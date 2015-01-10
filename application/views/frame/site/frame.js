@@ -10,7 +10,7 @@ $(function () {
     setTimeout (function () {
       if ($('#content').height () > $('.content').height ())
         $('.content').css ({'height': $('#content').height () + 'px'});  
-    }, 100);
+    }, 500);
   }).resize ();
   
   $('.option').click (function () {

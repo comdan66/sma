@@ -11,9 +11,52 @@ class Cases extends Site_controller {
     parent::__construct ();
   }
 
-  public function index ($tag_name = '') {
-    $this->load_view (null);
+  public function index ($offset = 0) {
+    $limit = 16;
+    $total = Casee::count (array ('conditions' => array ('is_enabled = ?', 1)));
+    $offset = ($offset < $total) || ($offset >= 0) ? $offset : 0;
+    $cases = Casee::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => array ('is_enabled = ?', 1)));
+
+    $this->load->library ('pagination');
+    
+    $a = $total / $limit;
+    $s = $offset / $limit;
+    $pagination_config = array (
+      'total_rows' => $total,
+      'page_query_string' => true,
+      'query_string_segment' => 'per_page',
+      'num_links' => 2 + ((3 - $s) > 0 ? 3 - $s - 1 : ($s - ($a - 3) > 0 ? $s - ($a - 3): 0)),
+      'per_page' => $limit,
+      'base_url' => base_url (array ($this->get_class (), $this->get_method ())),
+      'first_link' => '',
+      'last_link' => '', 
+      'prev_link' => '<', 
+      'next_link' => '>',
+      'uri_segment' => $offset ? 3 : 0, 
+      'page_query_string' => false, 
+      'full_tag_open' => '<ul class="pagination">', 
+      'full_tag_close' => '</ul>',
+      'first_tag_open' => '', 
+      'first_tag_close' => '', 
+      'prev_tag_open' => '<li class="UP">', 
+      'prev_tag_close' => '</li>', 
+      'num_tag_open' => '<li class="">', 
+      'num_tag_close' => '</li>',
+      'cur_tag_open' => '<li class="NOUSE">', 
+      'cur_tag_close' => '</li>',
+      'next_tag_open' => '<li class="NEXT">', 
+      'next_tag_close' => '</li>', 
+      'last_tag_open' => '', 
+      'last_tag_close' => '',
+      );
+    $this->pagination->initialize ($pagination_config);
+    $pagination = $this->pagination->create_links ();
+
+    $this->add_hidden (array ('id' => '_is_projects', 'value' => true))
+         ->add_hidden (array ('id' => '_class', 'value' => 'cases'))
+         ->load_view (array ('cases' => $cases, 'pagination' => $pagination));
   }
+
   public function content ($id) {
     echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" /><pre>';
     var_dump ('s');

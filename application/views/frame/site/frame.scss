@@ -54,7 +54,7 @@ html {
     body {
 
       #slide_cover {
-        position: fixed;
+        position: absolute;
         display: inline-block;
         width: 100%;
         height: calc(100% - 115px);

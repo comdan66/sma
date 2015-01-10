@@ -15,26 +15,17 @@
     <?php echo isset ($hidden) ? $hidden : '';?>
 
     <div id='right_slide' class='close'>
-      <a href=''><div class='item'>ABOUT</div></a>
-      <a href=''><div class='item'>CASE STUDY</div></a>
-      <div class='sub show'>
-        <a href=''><div class='item'>dasds</div></a>
-        <a href=''><div class='item'>SHOWSHOWSHOWSHOWSHOWSHOWSHOWSHOW</div></a>
-        <a href=''><div class='item'>dasds</div></a>
-      </div>
-      <a href=''><div class='item'>dasds</div></a>
-      <a href=''><div class='item'>dasds</div></a>
-      <a href=''><div class='item'>dasds</div></a>
-      <a href=''><div class='item'>dasds</div></a>
-      <a href=''><div class='item'>dasds</div></a>
+<?php echo render_cell ('site_cells', 'menus');?>
     </div>
     <div id='slide_cover'></div>
 
     <div id='container'>
       <div id='header' class='clearfix'>
-        <div class='logo'>
-          <img src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
-        </div>
+        <a href='<?php echo base_url ();?>'>
+          <div class='logo'>
+            <img src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
+          </div>
+        </a>
         <div class='info'>
           <img class='pc' src='<?php echo base_url (array ('resource', 'site', 'img', 'title_bg.jpg'));?>' />
           <img class='mv' src='<?php echo base_url (array ('resource', 'site', 'img', 'mtitle_bg.jpg'));?>' />
@@ -44,7 +35,6 @@
           </div>
         </div>
       </div>
-
 
       <div id='content'>
         <div class='footer'>
@@ -56,34 +46,12 @@
           <div class='info'>© 2014 Scent Marketing Association Co.,Ltd.</div>
         </div>
         <div class='slider'>
-          <a href=''><div class='item'>dasds</div></a>
-          <a href=''><div class='item'>CASE STUDY</div></a>
-          <div class='sub show'>
-            <a href=''><div class='item'>SHOWSHOWSHOWSHOWSHOWSHOWSHOWSHOW</div></a>
-            <a href=''><div class='item'>dasds</div></a>
-          </div>
-          <a href=''><div class='item'>dasds</div></a>
-          <a href=''><div class='item'>dasds</div></a>
-          <a href=''><div class='item'>dasds</div></a>
-          <a href=''><div class='item'>dasds</div></a>
-          <a href=''><div class='item'>dasds</div></a>
+    <?php echo render_cell ('site_cells', 'menus');?>
         </div>
-        <div class='content'>d
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
-          das<hr/>
+        <div class='content'>
+    <?php echo isset ($content) ? $content : '';?>
         </div>
       </div>
     </div>
-    <?php echo isset ($content) ? $content : '';?>
   </body>
 </html>

@@ -11,7 +11,12 @@ class Aromas extends Site_controller {
     parent::__construct ();
   }
 
-  public function index () {
+  public function index ($tag_name = '') {
     $this->load_view (null);
+  }
+  public function content ($id) {
+    echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" /><pre>';
+    var_dump ('s');
+    exit ();
   }
 }

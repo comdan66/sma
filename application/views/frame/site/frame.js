@@ -3,14 +3,14 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 $(function () {
+  var $rightSlide = $('#right_slide');
+  var overflow = $('body').css ('overflow');
+  
   $(window).resize (function () {
     if ($('#content').height () > $('.content').height ())
       $('.content').css ({'height': $('#content').height () + 'px'});
   }).resize ();
   
-
-  var $rightSlide = $('#right_slide');
-  var overflow = $('body').css ('overflow');
   $('.option').click (function () {
     if ($rightSlide.hasClass ('close')) {
       $rightSlide.removeClass ('close');
@@ -26,4 +26,7 @@ $(function () {
       $('body').css ('overflow', overflow);
     }
   });
+  var key = window.location.pathname.split ('/').filter (function (t) { return t.length; });
+  if (key.length)
+    $('div.sub[data-key="'+key[0]+'"]').addClass ('show');
 });

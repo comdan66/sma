@@ -23,8 +23,9 @@
 
     <div id='container'>
       <div class='slider'>
-        <img class='logo' src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
-
+        <a href='<?php echo base_url ();?>'>
+          <img class='logo' src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
+        </a>
         <div class='item'><a href='<?php echo base_url (array ('abouts'));?>'>ABOUT</a></div>
         <div class='item'><a href='<?php echo base_url (array ('cases'));?>'>CASE STUDY</a></div>
         <div class='item'><a href='<?php echo base_url (array ('news'));?>'>NEWS</a></div>

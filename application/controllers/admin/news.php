@@ -123,7 +123,8 @@ class News extends Admin_controller {
 
         $new->title      = $title;
         $new->date       = $date;
-        $new->content    = $content;
+        if (!$content)
+          $new->content    = $content;
         $new->is_enabled = $is_enabled;
         $new->save ();
 

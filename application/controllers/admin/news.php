@@ -108,7 +108,7 @@ class News extends Admin_controller {
         if ($file)
           $new->file_name->put ($file);
 
-        if ($old_blocks && ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) { NewBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks))))
+        if ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) { NewBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks ? $old_blocks : array ())))
           NewBlock::delete_all (array ('conditions' => array ('id IN (?) AND new_id = ?', $delete_ids, $new->id)));
 
         $content = '';

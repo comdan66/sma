@@ -137,7 +137,7 @@ class Aromas extends Admin_controller {
         if ($file)
           $aroma->file_name->put ($file);
 
-        if ($old_blocks && ($delete_ids = array_diff (field_array ($aroma->blocks, 'id'), array_map (function ($block) { AromaBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks))))
+        if ($delete_ids = array_diff (field_array ($aroma->blocks, 'id'), array_map (function ($block) { AromaBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks ? $old_blocks : array ())))
           AromaBlock::delete_all (array ('conditions' => array ('id IN (?) AND aroma_id = ?', $delete_ids, $aroma->id)));
 
         $content = '';

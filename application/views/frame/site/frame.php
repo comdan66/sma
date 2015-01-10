@@ -14,12 +14,12 @@
   <body lang="zh-tw">
     <?php echo isset ($hidden) ? $hidden : '';?>
 
-
-    <div id='right_slide' class='close'>
-<?php echo render_cell ('site_cells', 'menus');?>
+    <div class='slide_c'>
+      <div id='right_slide' class='close'>
+  <?php echo render_cell ('site_cells', 'menus');?>
+      </div>
+      <div id='slide_cover'></div>
     </div>
-    <div id='slide_cover'></div>
-
     <div id='container'>
 
       <div id='header' class='clearfix'>
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      
+
 
       <div id='content'>
         <div class='footer'>

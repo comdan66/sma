@@ -17,8 +17,6 @@ $(function () {
     if ($rightSlide.hasClass ('close')) {
       $rightSlide.removeClass ('close');
       $('body').css ('overflow', 'hidden');
-      document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
-
     } else {
       $rightSlide.addClass ('close');
       $('body').css ('overflow', overflow);

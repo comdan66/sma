@@ -52,10 +52,9 @@ html {
 @media screen and (min-width: 0px) and (max-width: 736px) {
   html {
     body {
-      overflow: hidden;
 
       #slide_cover {
-        position: absolute;
+        position: fixed;
         display: inline-block;
         width: 100%;
         height: calc(100% - 115px);
@@ -68,7 +67,7 @@ html {
       }
       $rightSlideWidth: 250px;
       #right_slide {
-        position: absolute;
+        position: fixed;
         display: inline-block;
         width: $rightSlideWidth;
         height: calc(100% - 115px);
@@ -186,7 +185,6 @@ html {
           position: relative;
           display: inline-block;
           width: 100%;
-          background-color: rgba(0, 0, 255, 0.2);
           .footer, .slider{
             display: none;
           }

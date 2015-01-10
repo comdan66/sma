@@ -10,6 +10,101 @@
 
 
 @media screen and (min-width: 0px) and (max-width: 736px) {
+  .paginations {
+    padding: 10px;
+    color: #767676;
+    text-align: center;
+
+    ul.pagination {
+      display: inline-block;
+      padding: 0;
+
+      *zoom: 1;
+
+      &:after {
+        display: table;
+        content: "";
+        line-height: 0;
+        clear: both;
+      }
+      li {
+        float: left;
+        list-style-type: none;
+        display: inline-block;
+        margin: 0 10px;
+        font-weight: bold;
+
+        a {
+          display:block;
+          width:12px;
+          text-decoration: none;
+          color: #767676;
+          font-weight: normal;
+          @include transition(none);
+
+          &:hover {
+            color: #70bc59;
+          }
+        }
+      }
+    }
+  }
+  .cases {
+    margin: 0 auto;
+
+    .case {
+      display: inline-block;
+      float: left;
+      width: 200px;
+      height: 250px;
+      margin: 10px;
+      img {
+        width: 200px;
+        height: 200px;
+      }
+      .name {
+        margin-top: 2px;
+        color: rgba(67, 62, 45, 1);
+        font-size: 1em;
+        text-align: left;
+
+        &:before {
+          content: "//";
+          margin-right: 3px;
+          color: rgba(168, 158, 118, 1);
+        }
+      }
+      .info {
+        color: rgba(116, 116, 116, 1);
+        padding-left: 15px;
+
+        .address, .level {
+          float: left;
+          display: inline-block;
+          padding: 0 5px;
+          font-size: .8em;
+        }
+        .address {
+          border-right: 1px solid rgba(119, 119, 119, .8);
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 0) and (max-width: 462px) {
+    .cases {
+      width: 220px;
+    }
+  }
+  @media screen and (min-width: 463px) and (max-width: 675px) {
+    .cases {
+      width: 440px;
+    }
+  }
+  @media screen and (min-width: 676px) and (max-width: 736px) {
+    .cases {
+      width: 660px;
+    }
+  }
 }
 @media screen and (min-width: 737px) {
   .paginations {
@@ -54,6 +149,7 @@
 
   .cases {
     margin: 0 auto;
+
     .case {
       display: inline-block;
       float: left;
@@ -91,7 +187,7 @@
       }
     }
   }
-  @media screen and (min-width: 0px) and (max-width: 949px) {
+  @media screen and (min-width: 737px) and (max-width: 949px) {
     .cases {
       width: 440px;
     }

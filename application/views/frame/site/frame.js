@@ -7,8 +7,10 @@ $(function () {
   var overflow = $('body').css ('overflow');
   
   $(window).resize (function () {
-    if ($('#content').height () > $('.content').height ())
-      $('.content').css ({'height': $('#content').height () + 'px'});
+    setTimeout (function () {
+      if ($('#content').height () > $('.content').height ())
+        $('.content').css ({'height': $('#content').height () + 'px'});  
+    }, 100);
   }).resize ();
   
   $('.option').click (function () {

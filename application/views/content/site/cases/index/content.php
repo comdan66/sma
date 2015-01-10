@@ -1,138 +1,19 @@
-<div class='paginations'>
-  <?php echo $pagination;?>
-</div>
-<div class='cases clearfix'>
-
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
+    <div class='paginations'>
+      <?php echo $pagination;?>
     </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
+    <div class='cases clearfix'>
+<?php if ($cases) {
+        foreach ($cases as $key => $case) { ?>
+          <a href='<?php echo base_url (array ('cases', $case->id));?>'>
+            <div class='case'>
+              <img src="<?php echo $case->first_pic->file_name->url ('200x200');?>" />
+              <div class='name'><?php echo $case->title;?></div>
+              <div class='info clearfix'>
+                <div class='address'><?php echo $case->address;?></div>
+                <div class='level'><?php echo $case->level;?>坪</div>
+              </div>
+            </div>
+          </a>
+  <?php }
+      } ?>
     </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  <div class='case'>
-    <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" />
-    <div class='name'>協奏曲</div>
-    <div class='info clearfix'>
-      <div class='address'>台北市中山區</div>
-      <div class='level'>24坪</div>
-    </div>
-  </div>
-  
-</div>

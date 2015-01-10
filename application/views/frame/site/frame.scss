@@ -59,7 +59,7 @@ html {
         width: 100%;
 
         #slide_cover {
-          position: absolute;
+          position: fixed;
           display: inline-block;
           width: 100%;
           height: calc(100% - 115px);

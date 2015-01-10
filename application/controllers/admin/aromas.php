@@ -100,8 +100,8 @@ class Aromas extends Admin_controller {
                 if (!$b->file_name->put (array_shift ($block_files)))
                   $b->delete ();
             }
-          $new->content = $content;
-          $new->save ();
+          $aroma->content = $content;
+          $aroma->save ();
 
           identity ()->set_session ('_flash_message', '新增成功!', true);
           redirect (array ('admin', $this->get_class ()));

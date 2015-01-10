@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <?php echo isset ($meta) ? $meta:'';?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta property="fb:admins" content="100000100541088" />
+    <meta property="fb:app_id" content="330210770498177" />
 
     <title><?php echo isset ($title) ? $title : '';?></title>
 

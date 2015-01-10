@@ -4,3 +4,121 @@
  */
 
 @import "_oa";
+.paginations {
+  padding: 10px;
+  color: #767676;
+  text-align: center;
+
+  ul.pagination {
+    display: inline-block;
+    padding: 0;
+
+    *zoom: 1;
+
+    &:after {
+      display: table;
+      content: "";
+      line-height: 0;
+      clear: both;
+    }
+    li {
+      float: left;
+      list-style-type: none;
+      display: inline-block;
+      margin: 0 10px;
+      font-weight: bold;
+
+      a {
+        display:block;
+        width:12px;
+        text-decoration: none;
+        color: #767676;
+        font-weight: normal;
+        @include transition(none);
+
+        &:hover {
+          color: #70bc59;
+        }
+      }
+    }
+  }
+}
+#content {
+  .content {
+    padding: 32px;
+    text-align: left;
+    .news {
+      width: 100%;
+      
+      .new {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: 20px;
+        padding-top: 35px;
+        border-bottom: 1px solid rgba(237, 236, 237, 1);
+        .top {
+          position: relative;
+          height: 120px;
+
+          .img, .info {
+            display: inline-block;
+            float: left;
+            width: 165px;
+          }
+          .img {
+            img {
+              width: 115px;
+              height: 115px;
+              @include border-radius(3px);
+            }
+          }
+          .info {
+            width: calc(100% - 165px);
+            a {
+              text-decoration: none;
+            }
+            .t {
+              padding-left: 10px;
+              font-size: 25px;
+              font-weight: bold;
+              color: #73716d;
+              border-left: 5px solid #73716d;
+            }
+            .d {
+              font-size: 12px;
+              color: #767676;
+              margin-top: 20px;
+              padding-left: 10px;
+            }
+            .c {
+              margin-top: 3px;
+              font-size: 15px;
+              color: #767676;
+              padding-left: 10px;
+              word-break: break-all;
+              height: 40px;
+              overflow: hidden;
+            }
+          }
+        }
+        .bottom {
+          height: 30px;
+          text-align: right;
+          a {
+            font-size: 13px;
+            color: #43392c;
+            text-decoration: none;
+            &:hover {
+              border-bottom: 1px solid #43392c;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 736px) {
+}
+@media screen and (min-width: 737px) {
+}

@@ -64,15 +64,17 @@ class News extends Admin_controller {
       if ($title && $file && $date && is_numeric ($is_enabled)) {
 
         if (verifyCreateOrm ($new = Neww::create (array ('title' => $title, 'file_name' => '', 'content' => '', 'date' => $date, 'is_enabled' => $is_enabled))) && $new->file_name->put ($file)) {
+          $content = '';
           if ($blocks)
             foreach ($blocks as $i => $block) {
-              $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
+              $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
 
               if ($block['type'] == 'file_name')
                 if (!$b->file_name->put (array_shift ($block_files)))
                   $b->delete ();
             }
-
+          $new->content = $content;
+          $new->save ();
           identity ()->set_session ('_flash_message', '新增成功!', true);
           redirect (array ('admin', $this->get_class ()));
         } else {
@@ -109,18 +111,20 @@ class News extends Admin_controller {
         if ($old_blocks && ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) { NewBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks))))
           NewBlock::delete_all (array ('conditions' => array ('id IN (?) AND new_id = ?', $delete_ids, $new->id)));
 
+        $content = '';
         if ($blocks)
           foreach ($blocks as $i => $block) {
-            $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
+            $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
 
             if ($block['type'] == 'file_name')
               if (!$b->file_name->put (array_shift ($block_files)))
                 $b->delete ();
           }
 
-        $new->title       = $title;
+        $new->title      = $title;
         $new->date       = $date;
-        $new->is_enabled  = $is_enabled;
+        $new->content    = $content;
+        $new->is_enabled = $is_enabled;
         $new->save ();
 
         identity ()->set_session ('_flash_message', '修改成功!', true);

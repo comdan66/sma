@@ -54,7 +54,7 @@ html {
     body {
 
       #slide_cover {
-        position: absolute;
+        position: fixed;
         display: inline-block;
         width: 100%;
         height: calc(100% - 115px);
@@ -67,7 +67,7 @@ html {
       }
       $rightSlideWidth: 250px;
       #right_slide {
-        position: absolute;
+        position: fixed;
         display: inline-block;
         width: $rightSlideWidth;
         height: calc(100% - 115px);

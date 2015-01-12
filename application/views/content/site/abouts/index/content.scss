@@ -9,51 +9,7 @@
   padding: 0;
   -webkit-box-sizing:border-box; /* 解除寬度與padding的關係 */
 }
-.content {
-  text-align: center;
-}
-
-#contitle {
-  margin:0 auto;
-  width:843px;
-  height:100px;
-  }
   
-#conbox {
-  margin:0 auto;
-  width:843px;
-  height:410px;
-  margin-bottom:20px;
-  }
-  
-#conadd {
-  margin:0 auto;
-  width:843px;
-  height:70px;
-  padding:12px 15px;
-  background-color:#eeeeee;
-  }
-  
-.toptitle {
-  margin:30px 0 5px 0;
-  font-size:26px;
-  color:#4d452e;
-  }
-  
-.etoptitle {
-  font-size:13px;
-  color:#4d452e;
-  }
-  
-.etoptitleadd {
-  font-size:13px;
-  color:#828282;
-  line-height:1.8em;
-  } 
-  
-  
-/*------------ about ----------*/
-
 #atopbg {
   margin:0 auto;
   width: 100%;

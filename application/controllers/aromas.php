@@ -52,10 +52,10 @@ class Aromas extends Site_controller {
     $this->pagination->initialize ($pagination_config);
     $pagination = $this->pagination->create_links ();
 
-    $this->load_view (array ('aromas' => $aromas, 'pagination' => $pagination));
+    $this->load_view (array ('page_key' => 'aroma', 'aromas' => $aromas, 'pagination' => $pagination));
   }
   public function content ($id) {
     ($aroma = Aroma::find ('one', array ('conditions' => array ('id = ? AND is_enabled = ?', $id, 1)))) || redirect (array ($this->get_class ()));
-    $this->load_view (array ('aroma' => $aroma));
+    $this->load_view (array ('page_key' => 'aroma', 'aroma' => $aroma));
   }
 }

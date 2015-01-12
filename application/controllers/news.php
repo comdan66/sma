@@ -52,10 +52,10 @@ class News extends Site_controller {
     $this->pagination->initialize ($pagination_config);
     $pagination = $this->pagination->create_links ();
 
-    $this->load_view (array ('news' => $news, 'pagination' => $pagination));
+    $this->load_view (array ('page_key' => 'new', 'news' => $news, 'pagination' => $pagination));
   }
   public function content ($id) {
     ($new = Neww::find ('one', array ('conditions' => array ('id = ? AND is_enabled = ?', $id, 1)))) || redirect (array ($this->get_class ()));
-    $this->load_view (array ('new' => $new));
+    $this->load_view (array ('page_key' => 'new', 'new' => $new));
   }
 }

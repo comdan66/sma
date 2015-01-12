@@ -12,6 +12,6 @@ class Abouts extends Site_controller {
   }
 
   public function index () {
-    $this->load_view (null);
+    $this->load_view (array ('page_key' => 'about'));
   }
 }

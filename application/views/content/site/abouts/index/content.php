@@ -1,6 +1,5 @@
 
 <div id="atopbg">
-  <p class="atoptitle">&nbsp;&nbsp;&nbsp;ABOUT&nbsp;&nbsp;&nbsp;</p>
 </div>
     
     <div id="acontit">

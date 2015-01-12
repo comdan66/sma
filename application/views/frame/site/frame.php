@@ -30,14 +30,16 @@
             <img src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
           </div>
         </a>
+
         <div class='info'>
           <img class='pc' src='<?php echo base_url (array ('resource', 'site', 'img', 'title_bg.jpg'));?>' />
           <img class='mv' src='<?php echo base_url (array ('resource', 'site', 'img', 'mtitle_bg.jpg'));?>' />
-          <div class='title'>CASE STUDY</div>
+          <div class='title'><?php echo strtoupper ($page_key);?></div>
           <div class='option'>
             <img src='<?php echo base_url (array ('resource', 'site', 'img', 'menu_iocn.png'));?>'>
           </div>
         </div>
+
       </div>
 
 

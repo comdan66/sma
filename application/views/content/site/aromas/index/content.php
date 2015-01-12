@@ -7,7 +7,7 @@
                 <a href="<?php echo base_url (array ('aromas', $aroma->id));?>"><img src="<?php echo $aroma->file_name->url ('115x115');?>"></a>
               </div>
               <div class='info'>
-                <a href="<?php echo base_url (array ('aromas', $aroma->id));?>"><div class='t'><?php echo $aroma->title;?></div></a>
+                <div class='t'><a href="<?php echo base_url (array ('aromas', $aroma->id));?>"><?php echo $aroma->title;?></a></div>
                 <div class='d'><?php echo $aroma->date->format ('Y.m.d');?></div>
                 <div class='c'><?php echo strip_tags ($aroma->content);?></div>
               </div>

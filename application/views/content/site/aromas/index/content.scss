@@ -75,15 +75,21 @@
           }
           .info {
             width: calc(100% - 165px);
-            a {
-              text-decoration: none;
-            }
+  
             .t {
               padding-left: 10px;
               font-size: 25px;
               font-weight: bold;
               color: #73716d;
-              border-left: 5px solid #73716d;
+              border-left: 5px solid #a19682;
+     
+              a {
+                color: #73716d;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
             }
             .d {
               font-size: 12px;
@@ -119,6 +125,27 @@
   }
 }
 @media screen and (min-width: 0px) and (max-width: 736px) {
+  #content {
+
+    .content {
+      padding: 10px;
+      .news {
+
+        .new {
+
+          .top {
+            
+            .img, .info {
+              width: 140px;
+            }
+            .info {
+              width: calc(100% - 140px);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media screen and (min-width: 737px) {
 }

@@ -85,7 +85,18 @@
       .back, #prophotobox {
         display: none;
       }
-      #m_prophotobox {}
+      #m_prophotobox {
+      }
+      .value {
+        .v1, .v2 {
+          display: block;
+          width: 100%;
+        }
+        .v2 {
+          margin-top: 20px;
+          padding-left: 15px;
+        }
+      }
     }
   }
   .container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}.container:before,.container:after{display:table;content:" "}.container:after{clear:both}.container:before,.container:after{display:table;content:" "}.container:after{clear:both}

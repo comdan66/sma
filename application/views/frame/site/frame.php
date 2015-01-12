@@ -50,7 +50,7 @@
             <div class='line'></div>
             <div class='icon'><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><path d="M15.996 15.457l16.004-7.539v-3.918h-32v3.906zM16.004 19.879l-16.004-7.559v15.68h32v-15.656z" fill="#444444"></path></svg></div>
           </div>
-          <div class='info'>© 2014 Scent Marketing Association Co.,Ltd.</div>
+          <div class='info'>© 2014 SMA Co.,Ltd.</div>
         </div>
         <div class='slider'>
     <?php echo render_cell ('site_cells', 'menus');?>

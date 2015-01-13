@@ -22,7 +22,7 @@ class Admin_controller extends Oa_controller {
          ->add_meta (array ('name' => 'description', 'content' => 'Designa Studio, a HTML5 / CSS3 template.'))
          ->add_meta (array ('name' => 'author', 'content' => 'Sylvain Lafitte, Web Designer, sylvainlafitte.com'))
 
-         ->set_title ('奇拓室內裝修設計 CHI-TORCH')
+         ->set_title ('台灣嗅覺香氛行銷協會')
 
          ->add_hidden (array ('id' => '_flash_message', 'value' => identity ()->get_session ('_flash_message', true)))
          ->_add_css ()

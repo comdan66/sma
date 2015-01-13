@@ -32,8 +32,8 @@
         <thead>
           <tr>
            <th width="12%"><input type="checkbox" id='check_all'></th>
-           <th width="20%">分類</th>
            <th width="20%">日期</th>
+           <th width="20%">分類</th>
            <th>名稱</th>
            <th width="8%">修改</th>
            <th width="8%">狀態</th>

@@ -10,7 +10,6 @@
     </form>
     <br>
     ( 圖片格式：jpg / gif / png )<br>
-    ( 圖片尺寸：XXX*XXX像素 )<br>
       * 最多五張圖片
     <br><br>
 <?php if ($banners) { ?>

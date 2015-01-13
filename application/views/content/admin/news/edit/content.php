@@ -1,5 +1,5 @@
 <section class="grid col-three-quarters mq2-col-full">
-  <h2>New > Create</h2>
+  <h2>New > Edit</h2>
   <hr>
   <h4>＊為必填欄位</h4>
   <form action="<?php echo base_url (array ('admin', 'news', 'edit', $new->id));?>" method="post" enctype="multipart/form-data" >

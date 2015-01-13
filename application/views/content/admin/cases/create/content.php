@@ -52,8 +52,6 @@
               <br />
               ( 圖片格式：jpg / gif / png )
               <br />
-              ( 圖片尺寸：XXX*XXX像素 )
-              <br />
               * 最多12張圖
             </td>
           </tr>

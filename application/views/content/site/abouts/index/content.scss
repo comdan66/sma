@@ -79,12 +79,24 @@
   }
 }
 @media screen and (max-width: 219px * 2) {
+
   #acolorb {
     width: 219px;
     .acotob {
       margin:10px;
     }
   }
+}
+@media screen and (min-width: 0) and (max-width: 736px) {
+#atopbg {
+  margin:0 auto;
+  width: 100%;
+  height:212px;
+  background:url(/resource/site/img/about_img.jpg) no-repeat center center;
+  text-align: center;
+  padding-top: 30px;
+  background-size:  100%;
+}
 }
 @media screen and (min-width: 219px * 2) and (max-width: 736px) {
   #acolorb {

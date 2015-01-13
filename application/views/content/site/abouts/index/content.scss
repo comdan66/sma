@@ -57,7 +57,7 @@
 .chtitlea {
   display:block;
   margin:0 auto;
-  width:843px;
+  width:100%;
   font-size:26px;
   color:#9b9b9b;
   font-size:13px;
@@ -78,7 +78,22 @@
     clear: both;
   }
 }
-  
+@media screen and (max-width: 219px * 2) {
+  #acolorb {
+    width: 219px;
+    .acotob {
+      margin:10px;
+    }
+  }
+}
+@media screen and (min-width: 219px * 2) and (max-width: 736px) {
+  #acolorb {
+    width: 219px * 2;
+    .acotob {
+      margin:10px;
+    }
+  }
+}
 .acotob {
   display: inline-block;
   float:left;

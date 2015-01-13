@@ -11,11 +11,13 @@ class Aromas extends Site_controller {
     parent::__construct ();
   }
 
-  public function index ($offset = 0) {
-    $limit = 16;
-    $total = Aroma::count (array ('conditions' => array ('is_enabled = ?', 1)));
+  public function index ($offset = 0, $tag = '') {
+    $tag = AromaTag::find ('one', array ('conditions' => array ('name = ?', $tag)));
+
+    $limit = 8;
+    $total = Aroma::count (array ('conditions' => $tag ? array ('is_enabled = ? AND aroma_tag_id = ?', 1, $tag->id) : array ('is_enabled = ?', 1)));
     $offset = ($offset < $total) || ($offset >= 0) ? $offset : 0;
-    $aromas = Aroma::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => array ('is_enabled = ?', 1)));
+    $aromas = Aroma::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => $tag ? array ('is_enabled = ? AND aroma_tag_id = ?', 1, $tag->id) : array ('is_enabled = ?', 1)));
 
     $this->load->library ('pagination');
     
@@ -27,12 +29,12 @@ class Aromas extends Site_controller {
       'query_string_segment' => 'per_page',
       'num_links' => 2 + ((3 - $s) > 0 ? 3 - $s - 1 : ($s - ($a - 3) > 0 ? $s - ($a - 3): 0)),
       'per_page' => $limit,
-      'base_url' => base_url (array ($this->get_class (), $this->get_method ())),
+      'base_url' => base_url (array ($this->get_class ())),
       'first_link' => '',
       'last_link' => '', 
       'prev_link' => '<', 
       'next_link' => '>',
-      'uri_segment' => $offset ? 3 : 0, 
+      'uri_segment' => $offset ? 2 : 0, 
       'page_query_string' => false, 
       'full_tag_open' => '<ul class="pagination">', 
       'full_tag_close' => '</ul>',

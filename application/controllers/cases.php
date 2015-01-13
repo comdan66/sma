@@ -52,13 +52,13 @@ class Cases extends Site_controller {
     $this->pagination->initialize ($pagination_config);
     $pagination = $this->pagination->create_links ();
 
-    $this->load_view (array ('page_key' => 'case', 'cases' => $cases, 'pagination' => $pagination));
+    $this->load_view (array ('page_key' => 'case study', 'cases' => $cases, 'pagination' => $pagination));
   }
 
   public function content ($id) {
     ($case = Casee::find ('one', array ('conditions' => array ('id = ? AND is_enabled = ?', $id, 1)))) || redirect (array ($this->get_class ()));
     $this->add_js (base_url (utilitySameLevelPath ('resource', 'site', 'js', 'bootstrap.min.js')))
          ->add_js (base_url (utilitySameLevelPath ('resource', 'site', 'js', 'swipe.js')))
-         ->load_view (array ('page_key' => 'case', 'case' => $case));
+         ->load_view (array ('page_key' => 'case study', 'case' => $case));
   }
 }

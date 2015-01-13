@@ -76,13 +76,22 @@
     margin-top: 4px;
     font-size: 15px;
     color: #767676;
+    line-height: 1.6;
   }
 }
 
 @media screen and (min-width: 0px) and (max-width: 736px) {
   #content {
     .content {
-      padding: 25px 15px;
+      padding: 25px 10px;
+      .t {
+        .tt, .bs {
+          width: 100px;
+        }
+        .tt {
+          width: calc(100% - 100px);
+        }
+      }
       .back {
         display: none;
       }

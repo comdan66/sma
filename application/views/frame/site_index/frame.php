@@ -42,7 +42,7 @@
           <p>District, TaipeiCity 10690, Taiwan (R.O.C)</p>
           <br />
 
-          <p>info@smatw.org</p>
+          <p><a href='mailto:info@smatw.org'>info@smatw.org</a></p>
         </div>
         <div class='right'>
           <p>© 2014 SMA Scent Marketing Association Co.,Ltd.</p>

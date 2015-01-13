@@ -25,6 +25,7 @@
       width: 180px;
     }
     .v1 {
+      line-height: 1.4;
       .name {
         font-size: 20pt;
         color: rgba(69, 57, 41, 1);
@@ -74,6 +75,7 @@
         font-size: 12pt;
         color: #787878;
         word-break: break-all;
+        line-height: 1.4;
       }
     }
   }
@@ -92,9 +94,20 @@
           display: block;
           width: 100%;
         }
+        .v1 {
+          .name {
+            font-size: 15px;
+          }
+          .address {
+            font-size: .8em;
+          }
+        }
         .v2 {
           margin-top: 20px;
           padding-left: 15px;
+          .g {
+            margin-bottom: 10px;
+          }
         }
       }
     }

@@ -5,6 +5,14 @@
 
 @import "_oa";
 
+@media screen and (min-width: 0px) and (max-width: 736px) {
+  #content {
+    .content {
+      padding: 10px;
+      padding-top: 0;
+    }
+  }
+}
 .content {
   text-align: left;
   padding: 35px;
@@ -43,6 +51,7 @@
 .etoptitle {
   font-size:13px;
   color:#4d452e;
+  margin-top: 5px;
   }
   
 .etoptitleadd {

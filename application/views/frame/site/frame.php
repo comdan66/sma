@@ -39,9 +39,7 @@
             <img src='<?php echo base_url (array ('resource', 'site', 'img', 'menu_iocn.png'));?>'>
           </div>
         </div>
-
       </div>
-
 
       <div id='content'>
         <div class='footer'>

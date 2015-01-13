@@ -5,6 +5,7 @@
 
 $(function () {
   var srcs = $('#supersize input').map (function () {
+    $('#supersize').append ($('<img />').attr ('src', $(this).val ())).OAimgLiquid ();
     return $(this).val ();
   });
   var timer = null, index = 0;
@@ -13,9 +14,8 @@ $(function () {
     clearTimeout (timer);
     (index > srcs.length - 1) && (index = 0);
     $('#supersize').find ('img').removeClass ('show');
-    $('#supersize').append ($('<img />').attr ('src', srcs[index++])).OAimgLiquid ().find ('img').addClass ('show');
-    $('#supersize img:not(:last)').remove ();
-    timer = setTimeout (change, 4000);
+    $('#supersize').find ('img').eq (index++).addClass ('show');
+    timer = setTimeout (change, 5000);
   };
   change ();
   $(window).resize (function () {

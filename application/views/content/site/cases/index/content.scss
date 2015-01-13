@@ -51,22 +51,21 @@
     .case {
       display: inline-block;
       float: left;
-      width: calc(50% - 40px);
-      height: 250px;
-      margin: 20px;
+      width: calc(50% - 20px);
+      margin: 10px;
+      font-size: 15px;
       @include opacity(1);
       &.cover {
         @include opacity(.3);
       }
       img {
         width: 100%;
-        height: 200px;
       }
       .name {
         margin-top: 2px;
         color: rgba(67, 62, 45, 1);
-        font-size: 1em;
         text-align: left;
+        font-size: 15px;
 
         &:before {
           content: "//";
@@ -76,16 +75,17 @@
       }
       .info {
         color: rgba(116, 116, 116, 1);
-        padding-left: 15px;
-
         .address, .level {
           float: left;
           display: inline-block;
-          padding: 0 5px;
           font-size: .8em;
         }
         .address {
+          padding-right: 5px;
           border-right: 1px solid rgba(119, 119, 119, .8);
+        }
+         .level {
+          padding-left: 5px;
         }
       }
     }
@@ -156,6 +156,7 @@
       width: 200px;
       height: 250px;
       margin: 10px;
+      line-height: 1.4;
       @include opacity(1);
       &.cover {
         @include opacity(.3);
@@ -165,28 +166,29 @@
         height: 200px;
       }
       .name {
-        margin-top: 2px;
         color: rgba(67, 62, 45, 1);
         font-size: 1em;
+        margin-top: 10px;
 
         &:before {
           content: "//";
-          margin-right: 3px;
           color: rgba(168, 158, 118, 1);
         }
       }
       .info {
         color: rgba(116, 116, 116, 1);
-        padding-left: 15px;
 
         .address, .level {
           float: left;
           display: inline-block;
-          padding: 0 5px;
           font-size: .8em;
         }
         .address {
+          padding-right: 5px;
           border-right: 1px solid rgba(119, 119, 119, .8);
+        }
+        .level {
+          padding-left: 5px;
         }
       }
     }

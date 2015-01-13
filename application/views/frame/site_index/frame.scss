@@ -48,10 +48,9 @@ html {
       top: 0;
       left: 0;
       z-index: -999;
-
       img {
         @include opacity(0);
-        @include transition(opacity 1.5s);
+        @include transition(opacity 2s);
 
         &.show {
           @include opacity(1);
@@ -79,6 +78,7 @@ html {
 
         .slider {
           text-align: center;
+          font-size: 15px;
           & {
             *zoom: 1;
 
@@ -93,7 +93,7 @@ html {
           img.logo {
             display: block;
             margin: 0 auto;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
           }
           .item {
             float: left;
@@ -139,6 +139,14 @@ html {
         .left {
           p {
             margin: 2px;
+
+              a {
+                color: #fff;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
           }
         }
       }
@@ -172,28 +180,28 @@ html {
             width: 148px;
             height: 38px;
 
-            margin: 30px 0;
+            margin: 50px 0;
             font-size: 80px;
             color: rgba(255, 255, 255, 1);
           }
-            .item {
-              font-size: 15pt;
-              color: rgba(255, 255, 255, 1);
-              border-bottom: 1px solid rgba(103, 175, 81, 0);
-              margin-bottom: 25px;
-              @include transition(all .5s);
-              @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+          .item {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 1);
+            border-bottom: 1px solid rgba(103, 175, 81, 0);
+            margin-bottom: 25px;
+            @include transition(all .5s);
+            @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
 
-              a {
-                color: #fff;
-                text-decoration: none;
-                &:hover {
-                  color: #70bc59;
-                  border-bottom: 1px solid #70bc59;
-                  @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.175));
-                }
-              }  
-            }
+            a {
+              color: #fff;
+              text-decoration: none;
+              &:hover {
+                color: #70bc59;
+                border-bottom: 1px solid #70bc59;
+                @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.175));
+              }
+            }  
+          }
         }
         .footer {
           position: absolute;
@@ -208,14 +216,22 @@ html {
             float: left;
             width: 400px;
             height: 100%;
-            font-size: 12pt;
+            font-size: .8em;
             text-align: left;
             color: rgba(255, 255, 255, 1);
+            line-height: 1.6;
             @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
           }
           .left {
             p {
               margin: 2px;
+              a {
+                color: #fff;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
             }
           }
           .right {
@@ -226,6 +242,7 @@ html {
               bottom: 0;
               right: 0;
               margin: 4px;
+
             }
           }
         }

@@ -12,7 +12,7 @@
 <?php if ($tags = AromaTag::find ('all')) { ?>
         <div class='sub' data-key='aromas'>  
     <?php foreach ($tags as $tag) { ?>
-            <a href='<?php echo base_url ('aromas');?>#<?php echo $tag->name;?>'><div class='item'><?php echo $tag->name;?></div></a>
+            <a href='<?php echo base_url (array ('aromas', 0, $tag->name));?>'><div class='item'><?php echo $tag->name;?></div></a>
    <?php  } ?>
         </div>
 <?php } ?>

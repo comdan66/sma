@@ -19,6 +19,11 @@
       } else if ($block->type == 'content') { ?>
         <div class='cc'><?php echo $block->content;?></div>
   <?php
+      } else if ($block->type == 'youtube') { ?>
+        <div class='i'>
+          <iframe src="http://www.youtube.com/embed/<?php echo $block->youtube;?>?&showinfo=1&autohide=1&autoplay=0" frameborder="0" allowfullscreen width="800" height="450"></iframe>
+        </div>
+  <?php
       }
     }
   }

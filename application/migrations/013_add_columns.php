@@ -8,6 +8,7 @@
 class Migration_Add_columns extends CI_Migration {
   public function up () {
     $sql = "ALTER TABLE `new_blocks` ADD `sort` int(11) NOT NULL DEFAULT '0'";
+    $this->db->query ($sql);
     $sql = "ALTER TABLE `aroma_blocks` ADD `sort` int(11) NOT NULL DEFAULT '0'";
     $this->db->query ($sql);
   }

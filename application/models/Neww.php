@@ -10,7 +10,7 @@ class Neww extends OaModel {
   static $table_name = 'news';
 
   static $has_many = array (
-    array ('blocks', 'class_name' => 'NewBlock', 'foreign_key' => 'new_id')
+    array ('blocks', 'class_name' => 'NewBlock', 'foreign_key' => 'new_id', 'order' => 'sort ASC')
   );
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {

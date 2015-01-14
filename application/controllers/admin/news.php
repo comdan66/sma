@@ -61,13 +61,15 @@ class News extends Admin_controller {
       $blocks = $this->input_post ('blocks');
       $block_files = get_upload_file ('block_files', 'all', false);
 
-      if ($title && $file && $date && is_numeric ($is_enabled)) {
+      if (true || ($title && $file && $date && is_numeric ($is_enabled))) {
 
-        if (verifyCreateOrm ($new = Neww::create (array ('title' => $title, 'file_name' => '', 'content' => '', 'date' => $date, 'is_enabled' => $is_enabled))) && $new->file_name->put ($file)) {
+        if (verifyCreateOrm ($new = Neww::create (array ('title' => $title ? $title : '', 'file_name' => '', 'content' => '', 'date' => $date ? $date : date ('Y-m-d'), 'is_enabled' => $is_enabled)))) {
+          $new->file_name->put ($file);
+
           $content = '';
           if ($blocks)
             foreach ($blocks as $i => $block) {
-              $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
+              $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => '', 'sort' => $block['sort']));
 
               if ($block['type'] == 'file_name')
                 if (!$b->file_name->put (array_shift ($block_files)))
@@ -104,17 +106,17 @@ class News extends Admin_controller {
       $blocks = $this->input_post ('blocks');
       $block_files = get_upload_file ('block_files', 'all', false);
 
-      if ($title && $date && is_numeric ($is_enabled)) {
+      if (true || ($title && $date && is_numeric ($is_enabled))) {
         if ($file)
           $new->file_name->put ($file);
 
-        if ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) { NewBlock::table ()->update ($set = array ('title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks ? $old_blocks : array ())))
+        if ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) { NewBlock::table ()->update ($set = array ('sort' => $block['sort'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks ? $old_blocks : array ())))
           NewBlock::delete_all (array ('conditions' => array ('id IN (?) AND new_id = ?', $delete_ids, $new->id)));
 
         $content = '';
         if ($blocks)
           foreach ($blocks as $i => $block) {
-            $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => ''));
+            $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => '', 'sort' => $block['sort']));
 
             if ($block['type'] == 'file_name')
               if (!$b->file_name->put (array_shift ($block_files)))

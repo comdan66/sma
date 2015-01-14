@@ -10,7 +10,7 @@ class Aroma extends OaModel {
   static $table_name = 'aromas';
 
   static $has_many = array (
-    array ('blocks', 'class_name' => 'AromaBlock')
+    array ('blocks', 'class_name' => 'AromaBlock', 'order' => 'sort ASC')
   );
 
   static $belongs_to = array (

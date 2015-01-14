@@ -59,6 +59,9 @@
           <input type='text' value="" name='blocks[<%=index%>][title]' placeholder='請輸入標題' title="輸入100個字元以內"  maxlength='100' pattern=".{1,100}" required title="輸入100個字元以內" />
           <div class='delete'>x</div>
         </td>
+        <td width="120">
+          <input type='number' name='blocks[<%=index%>][sort]' value="0" maxlength='10' pattern="\d*" required title="輸入10個字元以內" />
+        </td>
       </tr>
     </tbody>
   </table>
@@ -74,6 +77,9 @@
           <textarea placeholder='請輸入內文' name='blocks[<%=index%>][content]' cols="45" rows="5" title="輸入內文" title="輸入500個字元以內"  maxlength='500' pattern=".{1,500}" required title="輸入500個字元以內" ></textarea>
           <div class='delete'>x</div>
         </td>
+        <td width="120">
+          <input type='number' name='blocks[<%=index%>][sort]' value="0" maxlength='10' pattern="\d*" required title="輸入10個字元以內" />
+        </td>
       </tr>
     </tbody>
   </table>
@@ -88,6 +94,9 @@
           <input type="hidden" name='blocks[<%=index%>][type]' value='file_name' />
           <input type="file" name='block_files[]' class='file' value='' accept="image/jpg, image/jpeg, image/png" />
           <div class='delete'>x</div>
+        </td>
+        <td width="120">
+          <input type='number' name='blocks[<%=index%>][sort]' value="0" maxlength='10' pattern="\d*" required title="輸入10個字元以內" />
         </td>
       </tr>
     </tbody>

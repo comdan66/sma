@@ -87,8 +87,18 @@
   #content {
     .content {
       padding: 10px;
-      .back, #prophotobox {
+      #prophotobox {
         display: none;
+      }
+      .back {
+        text-align: right;
+        margin-bottom: 5px;
+        a {
+          display: none;
+        }
+        .fb-like {
+          display: inline-block;
+        }
       }
       #m_prophotobox {
       }

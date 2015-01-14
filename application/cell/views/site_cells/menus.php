@@ -3,7 +3,7 @@
 <?php if ($tags = CaseTag::find ('all')) { ?>
         <div class='sub' data-key='cases'>  
     <?php foreach ($tags as $tag) { ?>
-            <a href='<?php echo base_url ('cases');?>#<?php echo $tag->name;?>'><div class='item'><?php echo $tag->name;?></div></a>
+            <a href='<?php echo base_url ('cases');?>#<?php echo $tag->name;?>'><div class='item' data-v='<?php echo $tag->name;?>'><?php echo $tag->name;?></div></a>
    <?php  } ?>
         </div>
 <?php } ?>

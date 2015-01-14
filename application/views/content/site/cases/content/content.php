@@ -1,5 +1,6 @@
   <div class='back'>
     <a href='<?php echo base_url (array ('cases'));?>'>← 返回</a>
+    <div class="fb-like" data-href="<?php echo base_url (array ('cases', $case->id));?>" data-width="120" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
 
   <div id='m_prophotobox'>

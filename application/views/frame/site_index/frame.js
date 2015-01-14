@@ -15,7 +15,7 @@ $(function () {
     (index > srcs.length - 1) && (index = 0);
     $('#supersize').find ('img').removeClass ('show');
     $('#supersize').find ('img').eq (index++).addClass ('show');
-    timer = setTimeout (change, 5000);
+    timer = setTimeout (change, 12000);
   };
   change ();
   $(window).resize (function () {

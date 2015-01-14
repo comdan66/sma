@@ -124,6 +124,9 @@ html {
               padding-left: 46px;
               border: 0;
               color: rgba(180, 180, 180, 1);
+              &.action {
+                color: rgba(101, 179, 79, 1);
+              }
               &:hover {
                 color: #70bc59;
               }
@@ -395,6 +398,9 @@ html {
                 padding-left: 46px;
                 border: 0;
                 color: rgba(180, 180, 180, 1);
+                &.action {
+                  color: rgba(101, 179, 79, 1);
+                }
                 &:hover {
                   color: #70bc59;
                 }

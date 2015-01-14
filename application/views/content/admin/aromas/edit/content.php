@@ -84,7 +84,7 @@
               <td bgcolor="#F7F7F7" class="textleft">
                 <input type="hidden" name='old_blocks[<?php echo $index;?>][id]' value='<?php echo $block->id;?>' />
                 <input type="hidden" name='old_blocks[<?php echo $index;?>][type]' value='content' />
-                <textarea placeholder='請輸入內文' name='old_blocks[<?php echo $index;?>][content]' cols="45" rows="5" title="輸入內文" title="輸入500個字元以內"  maxlength='500' pattern=".{1,500}" required title="輸入500個字元以內" ><?php echo $block->content;?></textarea>
+                <textarea placeholder='請輸入內文' name='old_blocks[<?php echo $index;?>][content]' cols="45" rows="5" title="輸入內文" pattern=".{1,}" required title="輸入內文" ><?php echo $block->content;?></textarea>
                 <div class='delete'>x</div>
               </td>
               <td width="120">
@@ -150,7 +150,7 @@
         <td bgcolor="#F7F7F7" width="80">內文</td>
         <td bgcolor="#F7F7F7" class="textleft">
           <input type="hidden" name='blocks[<%=index%>][type]' value='content' />
-          <textarea placeholder='請輸入內文' name='blocks[<%=index%>][content]' cols="45" rows="5" title="輸入內文" title="輸入500個字元以內"  maxlength='500' pattern=".{1,500}" required title="輸入500個字元以內" ></textarea>
+          <textarea placeholder='請輸入內文' name='blocks[<%=index%>][content]' cols="45" rows="5" title="輸入內文" pattern=".{1,}" required title="輸入內文" ></textarea>
           <div class='delete'>x</div>
         </td>
         <td width="120">

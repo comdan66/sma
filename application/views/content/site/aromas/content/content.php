@@ -1,6 +1,6 @@
 <div class='d'><?php echo $aroma->date->format ('Y.m.d');?></div>
 <div class='t clearfix'>
-  <div class='tt'>芳香療法</div>
+  <div class='tt'><?php echo $aroma->title;?></div>
   <div class='bs'>
     <a href='<?php echo base_url (array ('aromas'));?>' class='back'>← 返回</a>
     <div class="fb-like" data-href="<?php echo base_url (array ('aromas', $aroma->id));?>" data-width="120" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>

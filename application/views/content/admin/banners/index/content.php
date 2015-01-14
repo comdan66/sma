@@ -9,8 +9,9 @@
       <button type="submit">新增</button>
     </form>
     <br>
-    ( 圖片格式：jpg / gif / png )<br>
-      * 最多五張圖片
+    (圖片格式:jpg / gif / png)<br>
+    圖片尺寸: 2048 * 1152 或 高解析 16:9 圖片<br>
+    圖片大小:不超過2M
     <br><br>
 <?php if ($banners) { ?>
         <table width="100%" border="1">

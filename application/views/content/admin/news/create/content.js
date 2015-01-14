@@ -20,6 +20,11 @@ $(function() {
     $(_.template ($('#_file_name').html (), obj) (obj)).insertAfter ($('table').last ());
   });
 
+  $('#add_youtube').click (function () {
+    var obj = {index: index++};
+    $(_.template ($('#_youtube').html (), obj) (obj)).insertAfter ($('table').last ());
+  });
+
   $('body').on ('click', '.delete', function () {
     $(this).parents ('table').remove ();
   });

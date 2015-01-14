@@ -99,6 +99,24 @@
           </tbody>
         </table>
 <?php
+      } else if ($block->type == 'youtube') { ?>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style='margin: 15px auto;'>
+          <tbody>
+            <tr>
+              <td bgcolor="#F7F7F7" width="80">youtube鏈結</td>
+              <td bgcolor="#F7F7F7" class="textleft">
+                <input type="hidden" name='old_blocks[<?php echo $index;?>][id]' value='<?php echo $block->id;?>' />
+                <input type="hidden" name='old_blocks[<?php echo $index;?>][type]' value='youtube' />
+                <input type='text' value="www.youtube.com/watch?v=<?php echo $block->youtube;?>" name='old_blocks[<?php echo $index;?>][youtube]' placeholder='請輸入youtube鏈結' title="請輸入youtube鏈結"  maxlength='100' pattern=".{1,100}" required title="請輸入youtube鏈結" />
+                <div class='delete'>x</div>
+              </td>
+              <td width="120">
+                <input type='number' name='old_blocks[<?php echo $index;?>][sort]' value="<?php echo $block->sort;?>" maxlength='10' pattern="\d*" required title="輸入10個字元以內" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+<?php
       }
     }
   }
@@ -107,6 +125,7 @@
       <button type="button" id='add_title'>加入小標題</button>
       <button type="button" id='add_content'>加入內文</button>
       <button type="button" id='add_file_name'>加入圖片</button>
+      <button type="button" id='add_youtube'>加入 youtube鏈結</button>
       <button type="submit">確定修改</button>
     </article>
   </form>
@@ -120,6 +139,24 @@
         <td bgcolor="#F7F7F7" class="textleft">
           <input type="hidden" name='blocks[<%=index%>][type]' value='title' />
           <input type='text' value="" name='blocks[<%=index%>][title]' placeholder='請輸入標題' title="輸入100個字元以內"  maxlength='100' pattern=".{1,100}" required title="輸入100個字元以內" />
+          <div class='delete'>x</div>
+        </td>
+        <td width="120">
+          <input type='number' name='blocks[<%=index%>][sort]' value="0" maxlength='10' pattern="\d*" required title="輸入10個字元以內" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+
+<script id='_youtube' type='text/x-html-template'>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style='margin: 15px auto;'>
+    <tbody>
+      <tr>
+        <td bgcolor="#F7F7F7" width="80">youtube鏈結</td>
+        <td bgcolor="#F7F7F7" class="textleft">
+          <input type="hidden" name='blocks[<%=index%>][type]' value='youtube' />
+          <input type='text' value="" name='blocks[<%=index%>][youtube]' placeholder='請輸入youtube鏈結' title="請輸入youtube鏈結"  maxlength='100' pattern=".{1,100}" required title="請輸入youtube鏈結" />
           <div class='delete'>x</div>
         </td>
         <td width="120">

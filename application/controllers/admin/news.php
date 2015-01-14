@@ -69,7 +69,12 @@ class News extends Admin_controller {
           $content = '';
           if ($blocks)
             foreach ($blocks as $i => $block) {
-              $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => '', 'sort' => $block['sort']));
+              if ($block['type'] == 'youtube') {
+                parse_str (parse_url ($block['youtube'], PHP_URL_QUERY ), $block['youtube']);
+                $block['youtube'] = isset ($block['youtube']['v']) ? $block['youtube']['v'] : '';
+              }
+
+              $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'youtube' => $block['type'] == 'youtube' ? $block['youtube'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => '', 'sort' => $block['sort']));
 
               if ($block['type'] == 'file_name')
                 if (!$b->file_name->put (array_shift ($block_files)))
@@ -110,13 +115,22 @@ class News extends Admin_controller {
         if ($file)
           $new->file_name->put ($file);
 
-        if ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) { NewBlock::table ()->update ($set = array ('sort' => $block['sort'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks ? $old_blocks : array ())))
+        if ($delete_ids = array_diff (field_array ($new->blocks, 'id'), array_map (function ($block) {
+          if ($block['type'] == 'youtube') {
+            parse_str (parse_url ($block['youtube'], PHP_URL_QUERY ), $block['youtube']);
+            $block['youtube'] = isset ($block['youtube']['v']) ? $block['youtube']['v'] : '';
+          }
+          NewBlock::table ()->update ($set = array ('sort' => $block['sort'], 'youtube' => $block['type'] == 'youtube' ? $block['youtube'] : '', 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $block['type'] == 'content' ? $block['content'] : ''), array ('id' => $block['id'])); return $block['id']; }, $old_blocks ? $old_blocks : array ())))
           NewBlock::delete_all (array ('conditions' => array ('id IN (?) AND new_id = ?', $delete_ids, $new->id)));
 
         $content = '';
         if ($blocks)
           foreach ($blocks as $i => $block) {
-            $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => '', 'sort' => $block['sort']));
+            if ($block['type'] == 'youtube') {
+              parse_str (parse_url ($block['youtube'], PHP_URL_QUERY ), $block['youtube']);
+              $block['youtube'] = isset ($block['youtube']['v']) ? $block['youtube']['v'] : '';
+            }
+            $b = NewBlock::create (array ('new_id' => $new->id, 'type' => $block['type'], 'youtube' => $block['type'] == 'youtube' ? $block['youtube'] : '', 'title' => $block['type'] == 'title' ? $block['title'] : '', 'content' => $content .= $block['type'] == 'content' ? $block['content'] : '', 'file_name' => '', 'sort' => $block['sort']));
 
             if ($block['type'] == 'file_name')
               if (!$b->file_name->put (array_shift ($block_files)))

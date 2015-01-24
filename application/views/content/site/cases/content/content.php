@@ -1,6 +1,6 @@
   <div class='back'>
     <a href='<?php echo base_url (array ('cases'));?>'>← 返回</a>
-    <div class="fb-like" data-href="<?php echo base_url (array ('cases', $case->id));?>" data-width="120" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    <div class="fb-like" data-href="<?php echo base_url (array ('case', $case->id));?>" data-width="120" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
 
   <div id='m_prophotobox'>
@@ -42,29 +42,85 @@
       }?>
     </div>
   </div>
+  
+  <div class='i'>
+    <div class='t'><?php echo $case->tag ? $case->tag->name : '';?></div>
+    <div class='s'>
+      <div class='n'><?php echo $case->title;?></div>
+    </div>
+  </div>
 
-  <div id="info">
-    <div class='title'><?php echo $case->tag ? $case->tag->name : '';?></div>
-    <div class='value clearfix'>
-      <div class='v1'>
-        <div class='name'><?php echo $case->title;?></div>
-        <div class='address'><?php echo $case->address;?></div>
-      </div>
-      <div class='v2'>
-  <?php if ($case->blocks) {
-          foreach ($case->blocks as $block) { ?>
-            <div class='t'><?php echo $block->title;?></div>
-      <?php if ($block->items) {
-              foreach ($block->items as $item) {
-                if ($block->type == 1) { ?>
-                  <div class='g clearfix'><div class='k'><?php echo $item->title;?></div><div class='v'><?php echo $item->content;?></div></div>
-          <?php } else { ?>
-                  <div class='tx'><?php echo nl2br($item->content);?></div>
+  <div class='u'>
+    <div class='l'>
+<?php if ($case->first_type_1_block) { ?>
+        <div class='y'><?php echo $case->first_type_1_block->title;?></div>
+  <?php if ($case->first_type_1_block->items) {
+          foreach ($case->first_type_1_block->items as $item) { ?>
+            <div class='p'>
+              <div class='w'><?php echo $item->title;?></div>
+              <div class='x'> </div>
+              <div class='v'><?php echo $item->content;?></div>
+            </div>
+    <?php }
+        }
+      } ?>
+    </div>
+    <div class='r'>
+<?php if ($case->blocks) {
+        foreach ($case->blocks as $block) {
+          if ($block->id != $case->first_type_1_block->id) {
+            if ($block->type == '1') { ?>
+              <div class='y'><?php echo $block->title;?></div>
+        <?php if ($block->items) {
+                foreach ($block->items as $item) { ?>
+                  <div class='p'>
+                    <div class='w'><?php echo $item->title;?></div>
+                    <div class='x'> </div>
+                    <div class='v'><?php echo $item->content;?></div>
+                  </div>
           <?php }
+              }
+            } else if ($block->type == '2') {
+              if ($block->items) {
+                if ($item->title) { ?>
+                  <div class='y'><?php echo $item->title;?></div>
+          <?php }
+                foreach ($block->items as $item) {?>
+                  <div class='c'><?php echo $item->content;?></div>
+      <?php     }
               }
             }
           }
-        } ?>
-      </div>
+        }
+      } ?>
     </div>
+  </div>
+  
+  <div class='q'>
+<?php
+    if ($case->blocks) {
+      foreach ($case->blocks as $block) {
+        if ($block->type == '1') { ?>
+          <div class='y'><?php echo $block->title;?></div>
+    <?php if ($block->items) {
+            foreach ($block->items as $item) { ?>
+              <div class='p'>
+                <div class='w'><?php echo $item->title;?></div>
+                <div class='x'> </div>
+                <div class='v'><?php echo $item->content;?></div>
+              </div>
+      <?php }
+          }
+        } else if ($block->type == '2') {
+          if ($block->items) {
+            if ($item->title) { ?>
+              <div class='y'><?php echo $item->title;?></div>
+      <?php }
+            foreach ($block->items as $item) {?>
+              <div class='c'><?php echo $item->content;?></div>
+  <?php     }
+          }
+        }
+      }
+    } ?>
   </div>

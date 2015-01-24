@@ -3,7 +3,7 @@
   <div class='tt'><?php echo $new->title;?></div>
   <div class='bs'>
     <a href='<?php echo base_url (array ('news'));?>' class='back'>← 返回</a>
-    <div class="fb-like" data-href="<?php echo base_url (array ('news', $new->id));?>" data-width="120" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    <div class="fb-like" data-href="<?php echo base_url (array ('new', $new->id));?>" data-width="120" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
   </div>
 </div>
 <div class='c'>

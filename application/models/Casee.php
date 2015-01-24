@@ -10,6 +10,7 @@ class Casee extends OaModel {
   static $table_name = 'cases';
 
   static $has_one = array (
+    array ('first_type_1_block', 'class_name' => 'CaseBlock', 'foreign_key' => 'case_id', 'ORDER' => 'id ASC', 'conditions' => array ('type = ?' , 1)),
     array ('first_pic', 'class_name' => 'CasePic', 'order' => 'id ASC', 'foreign_key' => 'case_id')
   );
 

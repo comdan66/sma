@@ -47,6 +47,8 @@
     <div class='t'><?php echo $case->tag ? $case->tag->name : '';?></div>
     <div class='s'>
       <div class='n'><?php echo $case->title;?></div>
+      <div class='l'> </div>
+      <div class='a'><?php echo $case->address;?></div>
     </div>
   </div>
 
@@ -54,6 +56,11 @@
     <div class='l'>
 <?php if ($case->first_type_1_block) { ?>
         <div class='y'><?php echo $case->first_type_1_block->title;?></div>
+          <div class='p'>
+            <div class='w'>坪數</div>
+            <div class='x'> </div>
+            <div class='v'><?php echo $case->level;?> 坪</div>
+          </div>
   <?php if ($case->first_type_1_block->items) {
           foreach ($case->first_type_1_block->items as $item) { ?>
             <div class='p'>

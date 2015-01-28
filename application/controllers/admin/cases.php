@@ -91,12 +91,13 @@ class Cases extends Admin_controller {
       $files       = $this->input_post ('files[]', true, true);
       $blocks      = $this->input_post ('blocks');
 
-      if ($title && $level && $address && $files && is_numeric ($is_enabled)) {
+      if (true || ($title && $level && $address && $files && is_numeric ($is_enabled))) {
 
-        if (verifyCreateOrm ($case = Casee::create (array ('title' => $title, 'level' => $level, 'address' => $address, 'is_enabled' => $is_enabled, 'case_tag_id' => $case_tag_id ? $case_tag_id : 0)))) {
-          foreach ($files as $file)
-            if (verifyCreateOrm ($pic = CasePic::create (array ('case_id' => $case->id, 'file_name' => ''))))
-              $pic->file_name->put ($file);
+        if (verifyCreateOrm ($case = Casee::create (array ('title' => $title ? $title : '', 'level' => $level ? $level : 0, 'address' => $address ? $address : '', 'is_enabled' => is_numeric ($is_enabled) ? $is_enabled : 1, 'case_tag_id' => $case_tag_id ? $case_tag_id : 0)))) {
+          if ($files)
+            foreach ($files as $file)
+              if (verifyCreateOrm ($pic = CasePic::create (array ('case_id' => $case->id, 'file_name' => ''))))
+                $pic->file_name->put ($file);
 
           if ($blocks)
             foreach ($blocks as $block) {
@@ -135,7 +136,7 @@ class Cases extends Admin_controller {
       $pics        = ($pics = $this->input_post ('pics')) ? $pics : array ();
       $blocks      = $this->input_post ('blocks');
 
-      if ($title && $level && $address && ($files || $pics) && is_numeric ($is_enabled)) {
+      if (true || ($title && $level && $address && ($files || $pics) && is_numeric ($is_enabled))) {
 
         if ($delete_pic_ids = array_diff (field_array ($case->pics, 'id'), $pics))
           array_map (function ($pic) {
